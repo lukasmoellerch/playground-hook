@@ -27,4 +27,5 @@ jobs:
     - name: Release
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      run: npx semantic-release
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      run: yarn semantic-release
