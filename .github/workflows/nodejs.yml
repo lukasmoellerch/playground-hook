@@ -24,3 +24,7 @@ jobs:
         yarn
         yarn build
         yarn test
+    - name: Release
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: npx semantic-release
