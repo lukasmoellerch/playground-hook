@@ -1,6 +1,6 @@
 {
   "name": "playground-hook",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "browser": "dist/jsx-playground.umd.js",
@@ -9,7 +9,8 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "test": "ava"
+    "test": "ava",
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@ava/babel": "^1.0.1",
@@ -27,7 +28,8 @@
     "rollup-plugin-terser": "^6.1.0",
     "sucrase": "^3.15.0",
     "tslib": "^1.9.3",
-    "typescript": "^3.2.2"
+    "typescript": "^3.2.2",
+    "semantic-release": "^17.1.1"
   },
   "peerDependencies": {
     "react": ">=16",
@@ -44,5 +46,9 @@
         ]
       }
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lukasmoellerch/playground-hook.git"
   }
 }
