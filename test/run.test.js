@@ -1,3 +1,4 @@
+// @ts-nocheck
 import test from "ava";
 import { executeMixedPromise, lazyModule } from "../dist/index.cjs";
 

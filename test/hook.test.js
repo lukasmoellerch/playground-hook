@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { act, renderHook } from "@testing-library/react-hooks";
 import test from "ava";
 import React from "react";
@@ -34,7 +35,7 @@ test.serial("It can render simple React elements", async (t) => {
       },
       "index.js",
       {
-        react: lazyModule(React),
+        react: lazyModule({ ...React }, undefined),
       }
     )
   );

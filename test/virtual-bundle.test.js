@@ -1,3 +1,4 @@
+// @ts-nocheck
 import test from "ava";
 import { createVirtualBundle } from "../dist/index.cjs";
 

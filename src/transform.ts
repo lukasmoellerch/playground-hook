@@ -12,7 +12,7 @@ interface NamedImport {
   localName: string;
 }
 
-interface ImportInfo {
+export interface ImportInfo {
   defaultNames: Array<string>;
   wildcardNames: Array<string>;
   namedImports: Array<NamedImport>;

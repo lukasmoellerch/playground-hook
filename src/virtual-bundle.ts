@@ -12,7 +12,10 @@ export function createVirtualBundle(modules: ModuleMap) {
       }
       const exports = {};
       moduleCache[moduleName] = exports;
-      modules[moduleName](exports, require);
+      const module = modules[moduleName];
+      if (typeof module !== "function")
+        throw new Error(`Module "${moduleName}" not found`);
+      module(exports, require);
       return moduleCache[moduleName];
     };
 

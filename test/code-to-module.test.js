@@ -7,6 +7,7 @@ test("Can create a simple module", (t) => {
   `);
   const module = codeToModule(code);
   const e = {};
+  // @ts-ignore
   module(e, () => ({}));
   t.is(e.a, 42);
 });
@@ -18,6 +19,7 @@ test("Can export default", (t) => {
   `);
   const module = codeToModule(code);
   const e = {};
+  // @ts-ignore
   module(e, () => ({}));
   t.is(e.default, 42);
 });
@@ -28,6 +30,7 @@ test("Can reexport everything form another module", (t) => {
   `);
   const module = codeToModule(code);
   const e = {};
+  // @ts-ignore
   module(e, () => ({
     something: 42.1,
   }));
@@ -41,6 +44,7 @@ test("filename and dirname work when they were provided", (t) => {
 `);
   const module = codeToModule(code, "/Users/mjr", "/Users/mjr/example.js");
   const e = {};
+  // @ts-ignore
   module(e, () => ({}));
   t.is(e.f, "/Users/mjr/example.js");
   t.is(e.d, "/Users/mjr");
