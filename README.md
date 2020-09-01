@@ -7,5 +7,7 @@
 </p>
 <hr>
 <p align="center" style="font-size: 1.2rem;">
-  ![minzip size](https://img.shields.io/bundlephobia/minzip/playground-hook)
+  <img src="https://img.shields.io/npm/v/playground-hook">
+  <img src="https://img.shields.io/bundlephobia/minzip/playground-hook">
+  <img src="https://img.shields.io/bundlephobia/min/playground-hook">
 </p>
