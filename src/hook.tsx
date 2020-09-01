@@ -87,9 +87,9 @@ export function usePlayground(
       );
       promise.current = newPromise;
       cancel.current = newCancel;
-      return [newPromise, cancel];
+      return [newPromise, cancel] as const;
     } catch (e) {
-      return [Promise.resolve(), () => {}];
+      return [Promise.resolve(), () => {}] as const;
     }
   };
 
