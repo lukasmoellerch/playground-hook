@@ -7,8 +7,6 @@
 </p>
 <p align="center" style="font-size: 1.2rem;">
   <img src="https://img.shields.io/npm/v/playground-hook">
-  <img src="https://img.shields.io/bundlephobia/minzip/playground-hook">
-  <img src="https://img.shields.io/bundlephobia/min/playground-hook">
 </p>
 
 - Supports mutliple files
@@ -61,3 +59,11 @@ function usePlayground(
 ```
 
 `codeModules` is a mapping that specifies the "files" that should be available in the execution context and which should be transpiled internally. When you call `run` the module named `entry` is executed. Using the `modules` parameter additional modules can be specified which are avalable as an object or a dynamic import. You can use it to inject modules into the sandbox. If you for example want your UI library available in the playground you have to specify it in modules. The signature of modules might look weird, but it is required to allow both the SSR usecase and to dynamically load the parts of the module which are required. This package also exports a utility function called `lazyModule` which returns an object that can be passed to modules as a value. You have to provide `lazyModule` with a synchronously loaded variant of your module and you can optionally probide a variant that is loaded asynchronously if it is required. This is usefull if you want some parts of your library available all the time but don't want the entire lbirary loaded when it is not needed.
+
+## Bundle Size
+
+The bundle provided by the package as it is distributed by npm includes a modified build of sucrase that doesn't support typescript and flow type annotations 
+
+
+<img src="https://img.shields.io/bundlephobia/minzip/playground-hook">
+<img src="https://img.shields.io/bundlephobia/min/playground-hook">
