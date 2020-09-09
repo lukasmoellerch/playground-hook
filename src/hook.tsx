@@ -4,6 +4,13 @@ import { executeMixed, trySync } from "./run";
 import { ImportInfo } from "./transform";
 import { ModuleFunction } from "./virtual-bundle";
 
+interface Options {
+  enableTrySync: boolean;
+}
+const defaultOptions: Options = {
+  enableTrySync: true,
+};
+
 export function usePlayground(
   codeModules: Record<string, string>,
   entry: string = "index.js",
@@ -13,8 +20,10 @@ export function usePlayground(
       (neededExports: string[] | true) => Promise<Record<string, unknown>>,
       () => Record<string, unknown> | undefined
     ]
-  > = {}
+  > = {},
+  options: Partial<Options> = {}
 ) {
+  const mergedOptions: Options = { ...defaultOptions, ...options };
   const [error, setError] = useState<Error | undefined>(undefined);
   const onError = (error: Error, _errorInfo: ErrorInfo) => {
     setError(error);
@@ -42,6 +51,7 @@ export function usePlayground(
     Record<string, [string, ModuleFunction, Map<string, ImportInfo>]>
   >({});
   const [node, setNode] = useState<React.ReactNode>(() => {
+    if (!mergedOptions.enableTrySync) return null;
     try {
       let n: React.ReactNode = null;
       const syncRender = (node: ReactElement) => {
