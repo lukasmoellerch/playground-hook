@@ -1,7 +1,7 @@
 export function lazyModule<T extends object, S extends keyof T>(
-  syncLoaded: Extract<T, S>,
+  syncLoaded: Pick<T, S>,
   asyncLoad?: () => Promise<T>
-): [(neededExports: string[] | true) => Promise<T>, () => Extract<T, S>] {
+): [(neededExports: string[] | true) => Promise<T>, () => Pick<T, S>] {
   let promise: Promise<T> | undefined;
   return [
     async (neededExports: string[] | true) => {
@@ -12,7 +12,7 @@ export function lazyModule<T extends object, S extends keyof T>(
             Object.prototype.hasOwnProperty.call(syncLoaded, key)
           ))
       ) {
-        return syncLoaded;
+        return syncLoaded as T;
       } else {
         if (promise) return promise;
         promise = asyncLoad();
